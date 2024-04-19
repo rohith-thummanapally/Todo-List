@@ -1,0 +1,133 @@
+<html>
+<head>
+    <link rel="stylesheet" href="style.css" >
+</head>
+<body>
+    <script>
+        let itemslist={1:{name:'item1',complete:false},2:{name:'item2',complete:true}};
+    </script>
+    <div>
+    <div>
+        <input type="text" oninput="inpchanged()" id="inpbox" placeholder="Type your todo list" style="height:50px;width:25vw;padding-left: 40px;" >
+            <img style="height:35px;width:35px;position: fixed;margin-left:-25vw;padding: 2px;padding-top:6px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5TvxPj9i1srBMNeEWIr58F1KnGZPkcyiliA&s" >
+            <img onclick="additem()" id="addbtn" style="height:25px;width:25px;position: fixed;margin-left:-3vw;padding: 2px;padding-top:11px;display: none;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALUAAACUCAMAAADifZgIAAAAZlBMVEX///8AAADv7+8MDAy6urpYWFj7+/v29vbz8/Pr6+vX19fb29tPT08QEBBeXl44ODjFxcVzc3MeHh6RkZFoaGgYGBhISEiZmZmmpqZ5eXmtra3Pz8/h4eGzs7OFhYU9PT0mJiYxMTG4gaFcAAAIe0lEQVR4nMVd6WKyOhBtEVkEkU0QWZT3f8mvtt5bOZmQTBLs+W3IISSzZ/z4cIcg8g75ZcpO589fnE9Z1+YHLwoczuQK4fDFNy0/ZSib6ZIn4V/TfEXYV10jJfyLpqv66K/JPtF3zaxB+Qdz0/V/TfgjTKadNuP/Mf3pVon9jE/5G5k//BHnpN0bcn4gbZM/4BxNJwvOD5wm782c48mS8g+m+J2cr3LBzMP58jbexmeQQua/hXNUnNVcGDjXb1A8vlPKP9h6uYduA9Kfn92m0ttPtUjsyrlJ0yxNm7nUU53phsvdqkXHqW79/JAMQ/zAMCSH3G/rWTmubDfi7BWKBb5VucyIDvrqplj2YhOdc1izRc9pMapEgTd2Kwb4lx17cE+6X1Hg86RpDMX+mh1wcm7D5rN8snHQ966CYbzJ3z53S1oupRvpXpYil0ui0SXpq2yW2mx18vooeeDVHWnZSu9HU8c7GGW2uTPB7dMLY2evxRfanDk6op3TpFNbGzOmt/fRyZHsSdKziw14nUnaDgTgQD65dqMRDjW5Ita2VEQ+t3Klfb2KXBNbi5v0D11K1ZGaYLJ75oV45M2t4u0pXXmxeiJh7Tg3ciizrLRZGWIZGvfBl4SgfTN/HLGp0y18pYGQ3MZb2xfN+P02Dt4g6vedoY4kdNcG2+MHxCYx071BK3627QKKiThZa2KaEc9xbLQvkLtZI3F/cJRLlIztmHB0nKhuUi5lyqae9AP8wTNwkvr6XzkUJRb7QAbC8bjp2x7h75Fo9V/VE7RDw93ZoipnyLzXwQzdPAhzMhW7KPUYD+gXWVKGbhaWiin9hPEZ42Atrc9Kf2AkBMZZix2jrpoZKxYuj0TDyNLld5h3z1lsQXhyrIJoaSiWHPEnyBGOikABcuO8src0X3YcvydGOdLojxXUImt72bAWD5S+6MKQb8mZ1471B/ohhe7ACM8EL4pgxxqDc3fdw4xfqeHNa8fawzOluTsDDCYwAzZ2rIXFrvXU+gHOMdcVsGSNDsJNz7vGl+V6cJasBZmt9anRYrxzfQFb1qggtSzkATbInjmpNesPMCduOiK7hw/ETgRas0aHVccGwjHsWII1a7SzNdYtgO9z585pzxr1414t+yLbDeKANX5utdV4gBH8WKQ9az4HUOclf0571h4kmtRKHdR5wa8XtGcdgtFZK0eAtDYIf9uzxg+uDAuHkPEyCJI5YA0e4Fn1wYcl69kgMeCA9WFePOKo0hnwliZBdgesMQyv+uJg8HUGObQIWJs8AorCVGYf5P8muVoK+9wncQXWV/pneS/frQHYnapIUKf787w4yaol9HA8FfIPD4vXKViDuJYJvqC1o/wkLk0HgOhTCewl651sQ5GJZAPIviXsMh7rsyQ9gIaCOSSSdVzqdAXrYBnVvEui9e6KgjN6An/phWXrtirEYiU+Y+CuKvhM8wHfURGH9pY+gYT1weDehgQ7eosA6/26pgLWkgK73iFr2imE8kEF60hrrWMXYu8HRzrGjGu9vkNCrX0tBD7NIQnX4r5WGH1LyVdKZAhZQGMEiWj1l+vCk9dHmZbRqx5XQ5a+vS73II+1VKMnbminssAnU6ODxyaNK8TrJeR6KKTpHogtqBIGYCKuxFOHqt7TAG6SX9XVisehT+Mb8Gk6gyt90XJPHg28ghAMZpXPDaUKmUFBjAMPLAZDR1W8AGrvZlBZ4oB1soxvSBToL+DzakVh3bOGaLR6k0Gg3qC40wFr0GJ35QCQACvu7nas0dmVGOEvgAENXwLYs44gDaYu1sByBb4QsWcdAwd12A5H8Gva7Vlj7lC9csHM3VPuWcPZmjXOFt5gZB9Ha9YBMFDFcB7AQj52UZ01axMGCegZdaDeNWuwls86+tmDQSduMNiW9QDX8mqtB2DejJvksGWN5Sl6uUPMvuu9qzPW+K01qw+EWkDmebRkjWdRt/4RCzSY2Ts71pi10669FG5+8VJKdqwxXHvWnhzv1vL0ox1r3J4n7ZFCxThrsa1YC5Fx/YRngBExjVoHN6yxzuOzZMyMIvvIcWk88NE5rEeM1nIKPRJhsRlmdjQvhs4Mv0KooC453nYgZIsqxpXzpewqGCNtpv1CP+N4hrO+PMwMHYWFYqxi9QeEPiGMS3CL+6ece6HCJQ4dy/oViZAwYpRQvtz15dzBFQrdtWzUBcQ8KMODjLKflz5zLlGIDQYYFyn+m1jIYrBaTvhTndUTx+4Sm2awbiQ8Ib56ytJyXsz7uRjHN7ny7okJXL6/rg9iNqPr4z0W6jOK/NkQUw93wwvHxLXMapvGeiFRA2Ha3gfDbZ9rFR02oKpNDAKMTxDXSXd8aaRGRWS4LS7bUlf/ufpKDapfl03LDMGJ+6bttjGTR5E2KDR9wUA1eapdXkofqKYZjeUMPVXA4rA/BF5z+QbnJicNOtHvqlUQ3dzIQWscQmo/Np6LXSLpm+eiERumdp5I7VufjHQJgUECiwApSL4kd2fXhCju6DokO/HxArI3zkNRmk8QtpI6NUURHAeyRlh332y9Y2kzN/ZNqBVE0mqQ7MrnHV+lVYxu+33KaX+mLW+mqE2lhXUm5d6rWGmxey7044CHYqU+zbJhEoXVVpm3to9VxyiI+1beUXCrhpn+ehPmphp7+R73+rFar/A6bdScdLVf5vfEWdf6CXTLD6LEb7tM1Xd6i16ZTwISwf2KY3k/pVkxVe2lraYiS0/3UqNAVPNOsRnGWU3AAE765q3g4KKOD8GQQYaIpJ0zjXF9x38YDC6bdn9p13d1019piMpFumUPKUB0cVRde3nvH1wMdKdLFu7X9//VgncR44AclO27/67gCX9vSvy+f0/rfBr5ZLLB0+mNZ5DE4E+8Bb/rNsveFl8WaKV7qWNXqS1aDfwDMR9v6i/HLnYAAAAASUVORK5CYII=" >
+        </input>
+    </div>
+    <div id="items">
+        <div>
+            <input type="checkbox" class="check" id="1" name="1" value="hi"><label for>hi</label></input><br>
+            <input type="checkbox" class="check" id="2" name="2" value="hello"><label>hello</label></input>
+        </div>
+    </div>
+    <div>
+        total : <span id="total" >3</span><br>
+        completed : <span id="completed" >3</span><br>
+        Not Completed : <span id="pending" >3</span>
+    </div>
+    </div>
+    <script>
+        window.onload=function()
+        {
+            loaditems();
+        }
+        function loaditems()
+        {
+            let htmlstr='';
+            let parentele=document.querySelector('#items');
+            let total=0;
+            let completed=0;
+            let pending=0;
+            for(let key in itemslist)
+            {
+                total++;
+                let value=itemslist[key];
+                let stylestr='';
+                let ischecked='';
+                if(value['complete']==true)
+                {
+                    completed++;
+                    stylestr="background-color:lightgrey;";
+                    ischecked='checked';
+                }
+                else
+                {
+                    pending++;
+                }
+                htmlstr+=`<div onmouseover="hovered(${key})" onmouseout="unhovered(${key})" style="${stylestr}width:25vw;height:30px;padding-top:15px">
+                            <input type="checkbox" onclick="checkedinp(this);" ${ischecked} class="check" id="${key}" name="${key}" value="${key}">
+                            <label for="${key}" style="font-size:18px">
+                                ${value['name']}
+                                </label>
+                            <img onclick="removeitem(${key})"  id="cancelimg-${key}" style="height:15px;width:15px;padding-top:0px;display:none;padding-right:15px;" align="right" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFhGj2l1ADyE5LWt3cyk780_pVTMLvDxtpRA&s" >
+                        </div>`;
+            }
+            //alert(htmlstr);
+            parentele.innerHTML=htmlstr;
+            document.querySelector('#total').innerHTML=total;
+            document.querySelector('#pending').innerHTML=pending;
+            document.querySelector('#completed').innerHTML=completed;
+        }
+        function hovered(id)
+        {
+            document.querySelector('#cancelimg-'+id).style.display='inline';
+        }
+        function unhovered(id)
+        {
+            document.querySelector('#cancelimg-'+id).style.display='none';
+        }
+        function removeitem(id)
+        {
+            delete itemslist[id];
+            console.log(itemslist);
+            loaditems();
+        }
+        function checkedinp(ele)
+        {
+            if(itemslist[ele.id]['complete'])
+            {
+                itemslist[ele.id]['complete']=false;
+            }
+            else
+            {
+                itemslist[ele.id]['complete']=true;
+            }
+            loaditems();
+        }
+        function additem()
+        {
+            let val=document.querySelector('#inpbox').value;
+            let keys=[];
+            for(let key in itemslist)
+            {
+                keys.push(Number(key));
+            }
+            let nid;
+            if(keys.length==0)
+            {
+                nid=1;
+            }
+            else
+            {
+                console.log(Math.max(...keys));
+            nid=Math.max(...keys)+1;
+            }
+            let nitem={name:val,complete:false};
+            itemslist[nid]=nitem;
+            console.log(itemslist);
+            loaditems();
+            document.querySelector('#inpbox').value='';
+        }
+        function inpchanged()
+        {
+            let val=document.querySelector('#inpbox').value.trim();
+            if(val!='')
+            {
+                document.querySelector('#addbtn').style.display='inline';
+            }
+            else{
+                document.querySelector('#addbtn').style.display='none';
+            }
+        }
+    </script>
+</body>
+<html>
